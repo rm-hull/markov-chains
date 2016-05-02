@@ -20,6 +20,7 @@
   :profiles {
     :dev {
       :global-vars {*warn-on-reflection* true}
+      :dependencies [
+        [overtone "0.10.1"]]
       :plugins [
-        [lein-cloverage "1.0.6"]
-        [overtone "0.10.1"]]}})
+        [lein-cloverage "1.0.6"] ]}})
