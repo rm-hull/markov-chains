@@ -41,8 +41,8 @@ superficially realistic data sets, some of which will be explored in this projec
 * **stochastic L-systems**, modelling the growth processes of plans with probalistic
   state rather than formalized rules.
 
-* **machine code generation**, using a simple [redcode VM](https://github.com/rm-hull/corewars),
-  we might be able to "grow" core-wars contestants, find the most resilient and strongest contenders,
+* **machine code generation**, using a simple [redcode VM](https://github.com/rm-hull/corewar),
+  we might be able to "grow" core-war contestants, find the most resilient and strongest contenders,
   breed them with genetic algorithms, and eventually they will take over.
 
 ### Pre-requisites
