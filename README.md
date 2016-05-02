@@ -95,11 +95,11 @@ The full code for these examples can be found in the [test/examples](https://git
 The [Wikipedia page](https://en.wikipedia.org/wiki/Markov_chain#Music) on Markov chains page
 illustrates a simple 1st order matrix as follows:
 
-| Note   | A    | C♯   | E♭  |
-|--------|------|------|-----|
-| **A**  | 0.1  | 0.6  | 0.3 |
-| **C♯** | 0.25 | 0.05 | 0.7 |
-| **E♭** | 0.7  | 0.3  | 0   |
+| Note   | A    | C♯   | E♭   |
+|--------|-----:|-----:|-----:|
+| **A**  | 0.1  | 0.6  | 0.3  |
+| **C♯** | 0.25 | 0.05 | 0.7  |
+| **E♭** | 0.7  | 0.3  | 0    |
 
 We can easily represent this in code as (using the same MIDI notation as used
 with `overtone.live/note`):
@@ -110,6 +110,22 @@ with `overtone.live/note`):
   :C#4 { :A4 0.25 :C#4 0.05 :Eb5 0.7 }
   :Eb5 { :A4 0.7  :C#4 0.3  :Eb5 0 }})
 ```
+
+...
+
+For a 2nd order matrix:
+
+| Note   | A    | D    | G    |
+|--------|-----:|-----:|-----:|
+| **AA** | 0.18 | 0.6  | 0.22 |
+| **AD** | 0.5  | 0.5  | 0    |
+| **AG** | 0.15 | 0.75 | 0.1  |
+| **DD** | 0    | 0    | 1    |
+| **DA** | 0.25 | 0    | 0.75 |
+| **DG** | 0.9  | 0.1  | 0    |
+| **GG** | 0.4  | 0.4  | 0.2  |
+| **GA** | 0.5  | 0.25 | 0.25 |
+| **GD** | 1    | 0    | 0    |
 
 ## References
 
