@@ -99,9 +99,9 @@ We can easily represent this in code as:
 
 ```clojure
 (def first-order-prob-matrix {
-  "A" { "A" 0.1 "C♯" 0.6 "E♭" 0.3 }
-  "C♯" { "A" 0.25 "C♯" 0.05 "E♭" 0.7 }
-  "E♭" { "A" 0.7 "C♯" 0.3 "E♭" 0 }})
+  :A4  { :A4 0.1  :C#4 0.6  :Eb5 0.3 }
+  :C#4 { :A4 0.25 :C#4 0.05 :Eb5 0.7 }
+  :Eb5 { :A4 0.7  :C#4 0.3  :Eb5 0 }})
 ```
 
 # References
