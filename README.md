@@ -90,6 +90,30 @@ TODO
 
 The full code for these examples can be found in the [test/examples](https://github.com/rm-hull/markov-chains/blob/master/test/examples) directory.
 
+### Text Generation
+
+Using some common (free) literature from [project gutenberg](https://www.gutenberg.org/):
+
+```clojure
+(use 'markov-chains.core)
+
+(def three-men-in-a-boat
+  (->
+    (slurp "resources/data/308.txt")
+    (clojure.string/split #"\s+")
+    (collate 2)))
+
+(->>
+  (generate three-men-in-a-boat)
+  (take 60)
+  (clojure.string/join " "))
+; => "at once: the boy with us. Now, you get a drop of Irish worth drinking.
+;    [Picture: Whisky glass] George said he would say, in an ordinary, middle-class
+;    way, but this is the chief article of diet at supper. The bread is two-thirds
+;    rainwater, the beefsteak-pie is exceedingly rich in melodramatic properties.
+;    It contains a fine day yesterday, and one woman"
+```
+
 ### Algorithmic Music
 
 The [Wikipedia page](https://en.wikipedia.org/wiki/Markov_chain#Music) on
