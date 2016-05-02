@@ -20,9 +20,14 @@
        (cumulative probabilities)))))
 
 (defn generate
-  ([prob-matrix]
-   (generate (rand-nth (keys prob-matrix)) prob-matrix))
+  ([probabilities-matrix]
+   (generate (rand-nth (keys probabilities-matrix)) probabilities-matrix))
 
-  ([start prob-matrix]
-    ;; TBD
-   ))
+  ([start probabilities-matrix]
+    (if-not (nil? start)
+      (cons
+        start
+        (lazy-cat
+          (generate
+            (select (get probabilities-matrix start))
+            probabilities-matrix))))))
