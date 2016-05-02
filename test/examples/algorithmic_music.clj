@@ -1,7 +1,6 @@
 (ns examples.algorithmic-music
   (:require
-    [markov-chains.core :refer [generate]]
-    [overtone.core :refer :all]))
+    [markov-chains.core :refer [generate]]))
 
 (def first-order-prob-matrix {
   [:A4]  { :A4 0.1  :C#4 0.6  :Eb4 0.3 }
@@ -12,7 +11,7 @@
 
 (comment
 
-  (boot-internal-server)
+  (use 'overtone.live)
 
   (definst saw-wave [freq 440 attack 0.01 sustain 0.4 release 0.1 vol 0.4]
     (* (env-gen (env-lin attack sustain release) 1 1 0 1 FREE)
