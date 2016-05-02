@@ -14,10 +14,13 @@
    (select (rand) probabilities))
 
   ([r probabilities]
-   (ffirst
-     (drop-while
-       #(> r (second %))
-       (cumulative probabilities)))))
+   (let [cumu (cumulative probabilities)
+         maxv (or (second (last cumu)) 1)
+         r (* r maxv)]
+     (ffirst
+       (drop-while
+         #(> r (second %))
+         cumu)))))
 
 (defn generate
   ([probabilities-matrix]
