@@ -82,6 +82,8 @@ TODO
 
 # Applications / Examples
 
+The full code for these examples can be found in the [test/examples](https://github.com/rm-hull/markov-chains/blob/master/test/examples) directory.
+
 ## Algorithmic Music
 
 The [Wikipedia page](https://en.wikipedia.org/wiki/Markov_chain#Music) on Markov chains page
@@ -96,7 +98,7 @@ illustrates a simple 1st order matrix as follows:
 We can easily represent this in code as:
 
 ```clojure
-(def 1st-order-prob-matrix {
+(def first-order-prob-matrix {
   :A { :A 0.1 :C♯ 0.6 :E♭ 0.3 }
   :C♯ { :A 0.25 :C♯ 0.05 :E♭ 0.7 }
   :E♭ { :A 0.7 :C♯ 0.3 :E♭ 0 }})
