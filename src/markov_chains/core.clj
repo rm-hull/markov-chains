@@ -21,13 +21,20 @@
 
 (defn generate
   ([probabilities-matrix]
-   (generate (rand-nth (keys probabilities-matrix)) probabilities-matrix))
+   (let [initial (rand-nth (keys probabilities-matrix))]
+     (lazy-cat
+       initial
+       (generate
+         initial
+         probabilities-matrix))))
 
-  ([start probabilities-matrix]
-    (if-not (nil? start)
-      (cons
-        start
-        (lazy-cat
-          (generate
-            (select (get probabilities-matrix start))
-            probabilities-matrix))))))
+  ([state probabilities-matrix]
+    (let [next-selection (select (get probabilities-matrix state))
+          prev-state (vec (next state))]
+      (if-not (nil? next-selection)
+        (cons
+          next-selection
+          (lazy-seq
+            (generate
+              (conj prev-state next-selection)
+              probabilities-matrix)))))))

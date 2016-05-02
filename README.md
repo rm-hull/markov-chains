@@ -93,7 +93,7 @@ The full code for these examples can be found in the [test/examples](https://git
 ### Algorithmic Music
 
 The [Wikipedia page](https://en.wikipedia.org/wiki/Markov_chain#Music) on Markov chains page
-illustrates a simple 1st order matrix as follows:
+illustrates a simple 1st-order matrix as follows:
 
 | Note   | A    | C♯   | E♭   |
 |--------|-----:|-----:|-----:|
@@ -105,15 +105,54 @@ We can easily represent this in code as (using the same MIDI notation as used
 with `overtone.live/note`):
 
 ```clojure
+(use 'markov-chains.core)
+
 (def first-order-prob-matrix {
-  :A4  { :A4 0.1  :C#4 0.6  :Eb5 0.3 }
-  :C#4 { :A4 0.25 :C#4 0.05 :Eb5 0.7 }
-  :Eb5 { :A4 0.7  :C#4 0.3  :Eb5 0 }})
+  [:A4]  { :A4 0.1  :C#4 0.6  :Eb4 0.3 }
+  [:C#4] { :A4 0.25 :C#4 0.05 :Eb4 0.7 }
+  [:Eb4] { :A4 0.7  :C#4 0.3  :Eb4 0 }})
+
+(take 12 (generate first-order-prob-matrix))
+; => (:Eb4 :A4 :C#4 :Eb4 :A4 :Eb4 :A4 :C#4 :Eb4 :A4 :C#4 :Eb4)
 ```
 
-...
+Obviously, the random nature means that the sequence will be different on each
+evaluation. _(Note to self: maybe should use a state monad for the random
+function)_
 
-For a 2nd order matrix:
+The keys on the matrix represent the current system state, along with any
+previous state that also needs to be remembered: as this is a first-order
+matrix, only the current state is used. As shown in the next example,
+higher-order systems will need to consider past state as well in order to
+produce results with a sense of phrasal structure, rather than the aimless
+wandering of a first-order system.
+
+This generated MIDI sequence can be then fed into overtone (make sure you have
+installed supercollider first):
+
+```clojure
+(use 'overtone.live)
+
+(definst saw-wave [freq 440 attack 0.01 sustain 0.4 release 0.1 vol 0.4]
+  (* (env-gen (env-lin attack sustain release) 1 1 0 1 FREE)
+     (saw freq)
+     vol))
+
+(defn saw2 [music-note]
+  (saw-wave (midi->hz (note music-note))))
+
+(defn play-chord [a-chord]
+  (doseq [note a-chord] (saw2 note)))
+
+(defn chord-progression-time [notes]
+  (doseq [[time note] (map list (iterate (partial + 400) (now)) notes)]
+    (at time (play-chord (chord note :major)))))
+
+(chord-progression-time (take 24 (generate first-order-prob-matrix)))
+```
+
+For a 2nd-order matrix, we take the previous state into consideration as well
+as the current state:
 
 | Note   | A    | D    | G    |
 |--------|-----:|-----:|-----:|
@@ -126,6 +165,30 @@ For a 2nd order matrix:
 | **GG** | 0.4  | 0.4  | 0.2  |
 | **GA** | 0.5  | 0.25 | 0.25 |
 | **GD** | 1    | 0    | 0    |
+
+Representing this as follows:
+
+```clojure
+(def second-order-prob-matrix {
+  [:A4 :A4] { :A4 0.18 :D4 0.6  :G4 0.22 }
+  [:A4 :D4] { :A4 0.5  :D4 0.5  :G4 0    }
+  [:A4 :G4] { :A4 0.15 :D4 0.75 :G4 0.1  }
+  [:D4 :D4] { :A4 0    :D4 0    :G4 1    }
+  [:D4 :A4] { :A4 0.25 :D4 0    :G4 0.75 }
+  [:D4 :G4] { :A4 0.9  :D4 0.1  :G4 0    }
+  [:G4 :G4] { :A4 0.4  :D4 0.4  :G4 0.2  }
+  [:G4 :A4] { :A4 0.5  :D4 0.25 :G4 0.25 }
+  [:G4 :D4] { :A4 1    :D4 0    :G4 0    }})
+
+(take 12 (generate second-order-prob-matrix))
+; => (:D4 :A4 :G4 :G4 :D4 :A4 :G4 :D4 :A4 :A4 :A4 :D4)
+```
+
+Playing in overtone, gives a slighly less jarring rendition:
+
+```clojure
+(chord-progression-time (take 40 (generate second-order-prob-matrix)))
+```
 
 ## References
 
