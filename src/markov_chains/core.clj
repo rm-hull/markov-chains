@@ -41,3 +41,14 @@
             (generate
               (conj prev-state next-selection)
               probabilities-matrix)))))))
+
+(defn tally [x]
+  (if (nil? x) 1 (inc x)))
+
+(defn collate [tokens n]
+  (reduce
+    (fn [acc value]
+      (update-in acc [(butlast value) (last value)] tally))
+    {}
+    (partition (inc n) 1 tokens)))
+
