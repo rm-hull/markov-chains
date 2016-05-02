@@ -92,8 +92,8 @@ The full code for these examples can be found in the [test/examples](https://git
 
 ### Algorithmic Music
 
-The [Wikipedia page](https://en.wikipedia.org/wiki/Markov_chain#Music) on Markov chains page
-illustrates a simple 1st-order matrix as follows:
+The [Wikipedia page](https://en.wikipedia.org/wiki/Markov_chain#Music) on
+Markov chains shows a simple 1st-order matrix as follows:
 
 | Note   | A    | C♯   | E♭   |
 |--------|-----:|-----:|-----:|
@@ -184,7 +184,8 @@ Representing this as follows:
 ; => (:D4 :A4 :G4 :G4 :D4 :A4 :G4 :D4 :A4 :A4 :A4 :D4)
 ```
 
-Playing in overtone, gives a slighly less jarring rendition:
+Playing in overtone, gives a slighly less jarring rendition than the
+first-order system:
 
 ```clojure
 (chord-progression-time (take 40 (generate second-order-prob-matrix)))
