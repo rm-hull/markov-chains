@@ -76,15 +76,15 @@ For maven-based projects, add the following to your `pom.xml`:
 </dependency>
 ```
 
-# Basic Usage
+## Basic Usage
 
 TODO
 
-# Applications / Examples
+## Applications / Examples
 
 The full code for these examples can be found in the [test/examples](https://github.com/rm-hull/markov-chains/blob/master/test/examples) directory.
 
-## Algorithmic Music
+### Algorithmic Music
 
 The [Wikipedia page](https://en.wikipedia.org/wiki/Markov_chain#Music) on Markov chains page
 illustrates a simple 1st order matrix as follows:
@@ -95,7 +95,7 @@ illustrates a simple 1st order matrix as follows:
 | **C♯** | 0.25 | 0.05 | 0.7 |
 | **E♭** | 0.7  | 0.3  | 0   |
 
-We can easily represent this in code as:
+We can easily represent this in code as (using the same MIDI notation as used with `overtone.live/note`):
 
 ```clojure
 (def first-order-prob-matrix {
@@ -104,14 +104,14 @@ We can easily represent this in code as:
   :Eb5 { :A4 0.7  :C#4 0.3  :Eb5 0 }})
 ```
 
-# References
+## References
 
 * [The Algorithmic Beauty of Plants](http://algorithmicbotany.org/papers/abop/abop.pdf) [PDF]
 * [The Tinkertoy Computer and other machinations](https://www.amazon.co.uk/Tinkertoy-Computer-Other-Machinations-Recreations/dp/B019L537LS/)
 
-# License
+## License
 
-## The MIT License (MIT)
+### The MIT License (MIT)
 
 Copyright (c) 2016 Richard Hull
 
