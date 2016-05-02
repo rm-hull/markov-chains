@@ -1,6 +1,6 @@
 (ns examples.algorithmic-music
   (:require
-    [markov-chains.core :refer [generate]]))
+    [markov-chains.core :refer [generate collate]]))
 
 (def first-order-prob-matrix {
   [:A4]  { :A4 0.1  :C#4 0.6  :Eb4 0.3 }
@@ -47,5 +47,30 @@
 (comment
 
   (chord-progression-time (take 40 (generate second-order-prob-matrix)))
+
+  (definst harpsichord [freq 440]
+    (let [duration 1]
+      (*
+        (line:kr 1 1 duration FREE)
+        (pluck (* (white-noise) (env-gen (perc 0.001 5) :action FREE))
+               1 1 (/ 1 freq) (* duration 2) 0.25))))
+
+  (def row-row-row-your-boat [
+      :C4 :C4 :C4 :D4 :E4
+      ; Row, row, row your boat,
+      :E4 :D4 :E4 :F4 :G4
+      ; Gently down the stream,
+      :C5 :C5 :C5 :G4 :G4 :G4 :E4 :E4 :E4 :C4 :C4 :C4
+      ; Merrily, merrily, merrily, merrily,
+      :G4 :F4 :E4 :D4 :C4]
+      ; Life is but a dream!
+   )
+
+   (defn harpsichord-progression-time [notes]
+    (doseq [[t n] (map list (iterate (partial + 200) (now)) notes)]
+      (at t (harpsichord (midi->hz (note n))))))
+
+  (def rrryb (collate row-row-row-your-boat 2))
+  (harpsichord-progression-time (take 400 (generate rrryb)))
 )
 
