@@ -219,19 +219,21 @@ first-order system:
 
 ### Artificial Botany
 
-A realistic shrub can be generated with an [L-system](https://github.com/rm-hull/lindenmayer-systems)
-grammar by repeatedly iterating the following rule and running the resultant operations
+A realistic shrub can be generated with a formal
+[L-system](https://github.com/rm-hull/lindenmayer-systems) grammar by
+repeatedly iterating the following rule and running the resultant operations
 through a [logo-style interpreter](https://github.com/rm-hull/turtle):
 
-    F→F[+F]F[-F][F]
+    F → F[+F]F[-F][F]
 
 This results in a fairly uniform shrub structure as follows:
 
 ![SVG](https://rawgithub.com/rm-hull/markov-chains/master/test/examples/resources/formal_grammar_shrub.svg)
 
-By taking the stream of operations (`:fwd`, `:left`, `:right`, etc) and collating them
-into a probability matrix, we are now able to generate a realistic stream of operations
-with the markov chains code.
+By taking the stream of operations that the L-system outputs (`:fwd`, `:left`,
+`:right`, etc.) and collating them into a probability matrix, we are now able
+to get the markov chains generator to emit a realistic stream of operations
+to pass to the logo drawing system.
 
 ```clojure
 (def shrub
@@ -262,7 +264,7 @@ with the markov chains code.
     [800 600]))
 ```
 
-See the [source](https://github.com/rm-hull/master/test/examples/botany.clj)
+See the [source](https://github.com/rm-hull/markov-chains/blob/master/test/examples/botany.clj)
 for details on the `l-system` implementation. The generated SVG is random of
 course, but would look something like this:
 
