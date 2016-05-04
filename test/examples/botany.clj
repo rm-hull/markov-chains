@@ -72,25 +72,25 @@
 
 ;; Generate some examples
 
-(spit "shrub1.svg"
+(spit "test/examples/resources/shrub1.svg"
   (draw!
     ->svg
     (augment (take 10000 (generate first-order-prob-matrix)))
     [800 600]))
 
-(spit "shrub2.svg"
+(spit "test/examples/resources/shrub2.svg"
   (draw!
     ->svg
     (augment (take 10000 (generate second-order-prob-matrix)))
     [800 600]))
 
-(spit "shrub3.svg"
+(spit "test/examples/resources/shrub3.svg"
   (draw!
     ->svg
     (augment (take 10000 (generate third-order-prob-matrix)))
     [800 600]))
 
-(spit "shrub4.svg"
+(spit "test/examples/resources/shrub4.svg"
   (draw!
     ->svg
     (augment (take 10000 (generate fourth-order-prob-matrix)))
