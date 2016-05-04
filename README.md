@@ -217,6 +217,58 @@ first-order system:
 
 > TODO: Row-row-row your boat example
 
+### Artificial Botany
+
+A realistic shrub can be generated with an [L-system](https://github.com/rm-hull/lindenmayer-systems)
+grammar by repeatedly iterating the following rule and running the resultant operations
+through a [logo-style interpreter](https://github.com/rm-hull/turtle):
+
+    F→F[+F]F[-F][F]
+
+This results in a fairly uniform shrub structure as follows:
+
+![SVG](https://rawgithub.com/rm-hull/markov-chains/master/test/examples/resources/formal_grammar_shrub.svg)
+
+By taking the stream of operations (`:fwd`, `:left`, `:right`, etc) and collating them
+into a probability matrix, we are now able to generate a realistic stream of operations
+with the markov chains code.
+
+```clojure
+(def shrub
+  (->>
+    (l-system "F" ("^") ("F=F[+F]F[-F][F]"))
+    (drop 5)
+    first
+    flatten))
+
+(def second-order-prob-matrix (collate shrub 2))
+
+(clojure.pprint/pprint second-order-prob-matrix)
+; => {(:right :fwd) {:restore 625, :save 156},
+;     (:save :fwd) {:restore 625, :save 156},
+;     (:restore :save) {:fwd 781, :left 156, :right 156},
+;     (:restore :restore) {:fwd 156, :save 218, :restore 93},
+;     (:restore :fwd) {:save 781},
+;     (:fwd :save) {:left 625, :right 625},
+;     (:left :fwd) {:restore 625, :save 156},
+;     (:save :right) {:fwd 781},
+;     (:save :left) {:fwd 781},
+;     (:fwd :restore) {:fwd 625, :save 875, :restore 375}}
+
+(spit "markov_shrub.svg"
+  (draw!
+    ->svg
+    (augment (take 10000 (generate second-order-prob-matrix)))
+    [800 600]))
+```
+
+See the [source](https://github.com/rm-hull/master/test/examples/botany.clj)
+for details on the `l-system` implementation. The generated SVG is random of
+course, but would look something like this:
+
+![SVG](https://rawgithub.com/rm-hull/markov-chains/master/test/examples/resources/markov_shrub.svg)
+
+
 ## References
 
 * [The Algorithmic Beauty of Plants](http://algorithmicbotany.org/papers/abop/abop.pdf) [PDF]

@@ -21,6 +21,8 @@
     :dev {
       :global-vars {*warn-on-reflection* true}
       :dependencies [
-        [overtone "0.10.1"]]
+        [overtone "0.10.1"]
+        [rm-hull/turtle "0.1.9-SNAPSHOT"]
+        ]
       :plugins [
-        [lein-cloverage "1.0.6"] ]}})
+        [lein-cloverage "1.0.6"]]}})
