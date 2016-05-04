@@ -99,7 +99,7 @@ Using some common (free) literature from [project gutenberg](https://www.gutenbe
 
 (def three-men-in-a-boat
   (->
-    (slurp "resources/data/308.txt")
+    (slurp "test/examples/resources/308.txt")
     (clojure.string/split #"\s+")
     (collate 2)))
 
@@ -107,11 +107,11 @@ Using some common (free) literature from [project gutenberg](https://www.gutenbe
   (generate three-men-in-a-boat)
   (take 60)
   (clojure.string/join " "))
-; => "at once: the boy with us. Now, you get a drop of Irish worth drinking.
-;    [Picture: Whisky glass] George said he would say, in an ordinary, middle-class
-;    way, but this is the chief article of diet at supper. The bread is two-thirds
-;    rainwater, the beefsteak-pie is exceedingly rich in melodramatic properties.
-;    It contains a fine day yesterday, and one woman"
+; => "it oozed over the blackness, and heard Harris’s sleepy voice asking
+;     where we drew near it, so they spread their handkerchiefs on the back
+;     of Harris and Harris’s friend as to avoid running down which, we managed
+;     to get out of here while this billing and cooing is on. We’ll go down
+;     to eat vegetables. He said they were demons."
 ```
 
 ### Algorithmic Music
