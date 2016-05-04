@@ -43,7 +43,7 @@ will be explored in this project:
   [overtone](http://overtone.github.io/) where the states of the system represent notes, and the
   probability matrix derived from an existing corpus of traditional music.
 
-* **stochastic L-systems**, modelling the growth processes of plans with probalistic
+* **stochastic L-systems**, modelling the growth processes of plants with probalistic
   state rather than formalized rules.
 
 * **machine code generation**, using a simple [redcode VM](https://github.com/rm-hull/corewar),
