@@ -46,10 +46,6 @@
     first
     flatten))
 
-(println (take 30 shrub))
-
-(clojure.pprint/pprint second-order-prob-matrix)
-
 ;; We can now work out some probability matrices
 (def first-order-prob-matrix (collate shrub 1))
 (def second-order-prob-matrix (collate shrub 2))
