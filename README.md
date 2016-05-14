@@ -389,7 +389,7 @@ And then some machinery to run the model and graph the results:
 Running this a few times illustrates that whatever starting point, the ratio of town
 dwellers to countryfolk settles to 2 to 1 over time:
 
-| ![PNG](https://rawgithub.com/rm-hull/markov-chains/master/doc/pop1.png) | ![PNG](https://rawgithub.com/rm-hull/markov-chains/master/doc/pop2.png) | ![PNG](https://rawgithub.com/rm-hull/markov-chains/master/doc/pop3.png) |
+![PNG](https://rawgithub.com/rm-hull/markov-chains/master/doc/pop1.png) ![PNG](https://rawgithub.com/rm-hull/markov-chains/master/doc/pop2.png) ![PNG](https://rawgithub.com/rm-hull/markov-chains/master/doc/pop3.png)
 
 Using an even longer timeframe:
 
