@@ -1,0 +1,7 @@
+digraph population_modelling {
+  rankdir=LR;
+  Town -> Town [label="90%"];
+  Town -> Country [label="10%"];
+  Country -> Town [label="20%"];
+  Country -> Country [label="80%"];
+}

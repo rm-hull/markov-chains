@@ -305,6 +305,103 @@ course, but would look something like this:
 
 ![SVG](https://rawgithub.com/rm-hull/markov-chains/master/test/examples/resources/markov_shrub.svg)
 
+### Population Modelling
+
+In _Mathematische Abenteuer mit dem Computer_, **L. Råde** & **R.D. Nelson**
+pose exercise 15.1 as follows:
+
+![SVG](https://rawgithub.com/rm-hull/markov-chains/master/doc/population-modelling.svg)
+
+> In a certain country the movement of people between cities
+> and the countryside is such that, in any one year, 20 per cent of
+> those living in the countryside move to the cities, while 10 per
+> cent of those living in the cities move to live in the countryside.
+>
+> Suppose that at the beginning of a year 5 million people live in the
+> cities and 4 million live in the countryside. Write a program so that
+> you can studyt the development year by year of the numbers of
+> inhabitants in the cities and the countryside.
+
+Writig this program directly, might yield a solution as follows:
+
+```clojure
+(defn population-modelling [town country]
+  (cons
+    [town country]
+    (lazy-seq
+      (population-modelling
+        (+ (* town 0.9) (* country 0.2))
+        (+ (* town 0.1) (* country 0.8))))))
+
+(first (drop 1000 (population-modelling 5 4)))
+; => [6.000000000000029 3.000000000000017]
+```
+
+Clearly the combined population of 9 million settles quite quicky into 6
+million townsfolk and 3 million in the countryside. What is interesting is
+that any pair combination that adds upto 9 million ends up with the same
+value.
+
+```clojure
+(first (drop 1000 (population-modelling 5 4)))
+; => [6.000000000000021 3.0000000000000115]
+```
+
+Actual population migration will never of course be exactly as the model
+suggests, but we can use the probabilities in the exercise and create a
+corresponding probability matrix:
+
+```clojure
+(def model {
+  [:town]    { :town 0.9 :country 0.1 }
+  [:country] { :town 0.2 :country 0.8 }})
+```
+
+And then some machinery to run the model and graph the results:
+
+```clojure
+(use '(incanter core stats datasets charts))
+
+(defn accumulator [data]
+  (reductions
+    (fn [acc value] (update acc value inc))
+    (into {} (map vector (distinct data) (repeat 0)))
+    data))
+
+(defn ratio [kw]
+ (fn [m]
+  (double (/ (kw m) (apply + (vals m))))))
+
+(view
+  (line-chart
+    (iterate inc 0)
+    (->>
+      (generate model)
+      (take 5000)
+      accumulator
+      next
+      (map (ratio :town))
+      (map (partial * 9)))
+    :x-label "time"
+    :y-label "town dwellers"))
+```
+
+Running this a few times illustrates that whatever starting point, the ratio of town
+dwellers to countryfolk settles to 2 to 1 over time:
+
+| ![PNG](https://rawgithub.com/rm-hull/markov-chains/master/doc/pop1.png) | ![PNG](https://rawgithub.com/rm-hull/markov-chains/master/doc/pop2.png) | ![PNG](https://rawgithub.com/rm-hull/markov-chains/master/doc/pop3.png) |
+
+Using an even longer timeframe:
+
+```clojure
+(->>
+  (generate model)
+  (take 1000000)
+  frequencies
+  ((ratio :town))
+  (* 9))
+; => 5.9997419999999995
+```
 
 ## References
 

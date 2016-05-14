@@ -22,7 +22,7 @@
       :global-vars {*warn-on-reflection* true}
       :dependencies [
         [overtone "0.10.1"]
-        [rm-hull/turtle "0.1.9"]
-        ]
+        [incanter/incanter "1.5.7"]
+        [rm-hull/turtle "0.1.9"]]
       :plugins [
         [lein-cloverage "1.0.6"]]}})
