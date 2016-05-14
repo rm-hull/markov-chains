@@ -319,10 +319,10 @@ pose exercise 15.1 as follows:
 >
 > Suppose that at the beginning of a year 5 million people live in the
 > cities and 4 million live in the countryside. Write a program so that
-> you can studyt the development year by year of the numbers of
+> you can study the development year by year of the numbers of
 > inhabitants in the cities and the countryside.
 
-Writig this program directly, might yield a solution as follows:
+Writing this program directly, might yield a solution as follows:
 
 ```clojure
 (defn population-modelling [town country]
@@ -343,7 +343,7 @@ that any pair combination that adds upto 9 million ends up with the same
 value.
 
 ```clojure
-(first (drop 1000 (population-modelling 5 4)))
+(first (drop 1000 (population-modelling 8.5 0.5)))
 ; => [6.000000000000021 3.0000000000000115]
 ```
 
