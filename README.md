@@ -69,7 +69,7 @@ There is a version hosted at [Clojars](https://clojars.org/rm-hull/markov-chains
 For leiningen include a dependency:
 
 ```clojure
-[rm-hull/markov-chains "0.0.1"]
+[rm-hull/markov-chains "0.1.0"]
 ```
 
 For maven-based projects, add the following to your `pom.xml`:
@@ -78,7 +78,7 @@ For maven-based projects, add the following to your `pom.xml`:
 <dependency>
   <groupId>rm-hull</groupId>
   <artifactId>markov-chains</artifactId>
-  <version>0.0.1</version>
+  <version>0.1.0</version>
 </dependency>
 ```
 
