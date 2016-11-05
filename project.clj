@@ -7,8 +7,6 @@
   :dependencies [
     [org.clojure/clojure "1.8.0"]]
   :scm {:url "git@github.com:rm-markov-chains.git"}
-  :plugins [
-            ]
   :source-paths ["src"]
   :jar-exclusions [#"(?:^|/).git"]
   :codox {
@@ -21,8 +19,8 @@
       :global-vars {*warn-on-reflection* true}
       :dependencies [
         [overtone "0.10.1"]
-        [incanter/incanter "1.5.7"]
-        [rm-hull/turtle "0.1.9"]]
+        [incanter/incanter "1.9.1"]
+        [rm-hull/turtle "0.1.10"]]
       :plugins [
         [lein-cljfmt "0.5.6"]
         [lein-codox "0.10.1"]
