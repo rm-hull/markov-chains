@@ -19,9 +19,9 @@
       :global-vars {*warn-on-reflection* true}
       :dependencies [
         [overtone "0.10.1"]
-        [incanter/incanter "1.9.1"]
+        [incanter "1.5.7"]
         [rm-hull/turtle "0.1.10"]]
       :plugins [
         [lein-cljfmt "0.5.6"]
-        [lein-codox "0.10.1"]
+        [lein-codox "0.10.2"]
         [lein-cloverage "1.0.9"]]}})
