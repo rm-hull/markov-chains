@@ -1,6 +1,11 @@
 # Markov Chains
 
-[![Build Status](https://travis-ci.org/rm-hull/markov-chains.svg?branch=master)](http://travis-ci.org/rm-hull/markov-chains) [![Coverage Status](https://coveralls.io/repos/rm-hull/markov-chains/badge.svg?branch=master)](https://coveralls.io/r/rm-hull/markov-chains?branch=master) [![Dependencies Status](https://jarkeeper.com/rm-hull/markov-chains/status.svg)](https://jarkeeper.com/rm-hull/markov-chains) [![Downloads](https://jarkeeper.com/rm-hull/markov-chains/downloads.svg)](https://jarkeeper.com/rm-hull/markov-chains) [![Clojars Project](https://img.shields.io/clojars/v/rm-hull/markov-chains.svg)](https://clojars.org/rm-hull/markov-chains)
+[![Build Status](https://travis-ci.org/rm-hull/markov-chains.svg?branch=master)](http://travis-ci.org/rm-hull/markov-chains)
+[![Coverage Status](https://coveralls.io/repos/rm-hull/markov-chains/badge.svg?branch=master)](https://coveralls.io/r/rm-hull/markov-chains?branch=master)
+[![Dependencies Status](https://jarkeeper.com/rm-hull/markov-chains/status.svg)](https://jarkeeper.com/rm-hull/markov-chains)
+[![Downloads](https://jarkeeper.com/rm-hull/markov-chains/downloads.svg)](https://jarkeeper.com/rm-hull/markov-chains)
+[![Clojars Project](https://img.shields.io/clojars/v/rm-hull/markov-chains.svg)](https://clojars.org/rm-hull/markov-chains)
+[![Maintenance](https://img.shields.io/maintenance/yes/2017.svg?maxAge=2592000)]()
 
 A library (and application examples) of stochastic discrete-time Markov Chains
 (DTMC) in Clojure: a random process that undergoes state transitions according
