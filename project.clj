@@ -11,7 +11,7 @@
     :source-paths ["src"]
     :output-path "doc/api"
     :source-uri "http://github.com/rm-hull/markov-chains/blob/master/{filepath}#L{line}"  }
-  :min-lein-version "2.7.1"
+  :min-lein-version "2.8.1"
   :profiles {
     :dev {
       :global-vars {*warn-on-reflection* true}

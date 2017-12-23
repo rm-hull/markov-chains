@@ -57,7 +57,7 @@ will be explored in this project:
 
 ### Pre-requisites
 
-You will need [Leiningen](https://github.com/technomancy/leiningen) 2.7.1 or
+You will need [Leiningen](https://github.com/technomancy/leiningen) 2.8.1 or
 above installed.
 
 ### Building
@@ -83,7 +83,7 @@ For maven-based projects, add the following to your `pom.xml`:
 <dependency>
   <groupId>rm-hull</groupId>
   <artifactId>markov-chains</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.1</version>
 </dependency>
 ```
 
