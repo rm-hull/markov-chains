@@ -57,7 +57,7 @@ will be explored in this project:
 
 ### Pre-requisites
 
-You will need [Leiningen](https://github.com/technomancy/leiningen) 2.6.1 or
+You will need [Leiningen](https://github.com/technomancy/leiningen) 2.7.1 or
 above installed.
 
 ### Building
@@ -74,7 +74,7 @@ There is a version hosted at [Clojars](https://clojars.org/rm-hull/markov-chains
 For leiningen include a dependency:
 
 ```clojure
-[rm-hull/markov-chains "0.1.0"]
+[rm-hull/markov-chains "0.1.1"]
 ```
 
 For maven-based projects, add the following to your `pom.xml`:
