@@ -18,9 +18,9 @@
       :dependencies [
         [org.clojure/clojure "1.9.0"]
         [overtone "0.10.3"]
-        [incanter "1.9.1"]
+        [incanter "1.9.3"]
         [rm-hull/turtle "0.1.11"]]
       :plugins [
         [lein-cljfmt "0.5.7"]
-        [lein-codox "0.10.3"]
-        [lein-cloverage "1.0.10"]]}})
+        [lein-codox "0.10.4"]
+        [lein-cloverage "1.0.11"]]}})
