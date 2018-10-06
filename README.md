@@ -2,8 +2,8 @@
 
 [![Build Status](https://travis-ci.org/rm-hull/markov-chains.svg?branch=master)](http://travis-ci.org/rm-hull/markov-chains)
 [![Coverage Status](https://coveralls.io/repos/rm-hull/markov-chains/badge.svg?branch=master)](https://coveralls.io/r/rm-hull/markov-chains?branch=master)
-[![Dependencies Status](https://jarkeeper.com/rm-hull/markov-chains/status.svg)](https://jarkeeper.com/rm-hull/markov-chains)
-[![Downloads](https://jarkeeper.com/rm-hull/markov-chains/downloads.svg)](https://jarkeeper.com/rm-hull/markov-chains)
+[![Dependencies Status](https://versions.deps.co/rm-hull/markov-chains/status.svg)](https://versions.deps.co/rm-hull/markov-chains)
+[![Downloads](https://versions.deps.co/rm-hull/markov-chains/downloads.svg)](https://versions.deps.co/rm-hull/markov-chains)
 [![Clojars Project](https://img.shields.io/clojars/v/rm-hull/markov-chains.svg)](https://clojars.org/rm-hull/markov-chains)
 [![Maintenance](https://img.shields.io/maintenance/yes/2018.svg?maxAge=2592000)]()
 
