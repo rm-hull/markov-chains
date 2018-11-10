@@ -9,6 +9,13 @@
   :jar-exclusions [#"(?:^|/).git"]
   :codox {
     :source-paths ["src"]
+    :doc-files [
+      "doc/background.md"
+      "doc/basic-usage.md"
+      "doc/applications-examples.md"
+      "doc/references.md"
+      "LICENSE.md"
+    ]
     :output-path "doc/api"
     :source-uri "http://github.com/rm-hull/markov-chains/blob/master/{filepath}#L{line}"  }
   :min-lein-version "2.8.1"
@@ -21,6 +28,6 @@
         [incanter "1.9.3"]
         [rm-hull/turtle "0.1.11"]]
       :plugins [
-        [lein-cljfmt "0.5.7"]
-        [lein-codox "0.10.4"]
-        [lein-cloverage "1.0.11"]]}})
+        [lein-cljfmt "0.6.1"]
+        [lein-codox "0.10.5"]
+        [lein-cloverage "1.0.13"]]}})
