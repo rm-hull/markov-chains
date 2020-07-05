@@ -5,7 +5,7 @@
 [![Dependencies Status](https://versions.deps.co/rm-hull/markov-chains/status.svg)](https://versions.deps.co/rm-hull/markov-chains)
 [![Downloads](https://versions.deps.co/rm-hull/markov-chains/downloads.svg)](https://versions.deps.co/rm-hull/markov-chains)
 [![Clojars Project](https://img.shields.io/clojars/v/rm-hull/markov-chains.svg)](https://clojars.org/rm-hull/markov-chains)
-[![Maintenance](https://img.shields.io/maintenance/yes/2019.svg?maxAge=2592000)]()
+[![Maintenance](https://img.shields.io/maintenance/yes/2020.svg?maxAge=2592000)]()
 
 A library (and application examples) of stochastic discrete-time Markov Chains
 (DTMC) in Clojure: a random process that undergoes state transitions according
