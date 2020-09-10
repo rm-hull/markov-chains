@@ -35,7 +35,7 @@ and other machinations_:
 > so generated bears an eerie resemblance to the original:
 >
 > "When I meet someone on a professional basis, I want them to shave their
-> arms. While at a conference a few weeks back, I spen an interesting evening
+> arms. While at a conference a few weeks back, I spent an interesting evening
 > with a grain of salt. I wouldn't dare take them seriously! This brings me
 > back to the brash people who dare others to do so or not. I love a good flame
 > argument, probably more than anyone...
